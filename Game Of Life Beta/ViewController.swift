@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var colonyTable: UITableView!;
+    @IBOutlet weak var colonyGrid: UICollectionView!;
+    @IBOutlet weak var colonyOptions: UIView!;
+    var colonies: [Colony];
 
     override func viewDidLoad() {
         super.viewDidLoad()
