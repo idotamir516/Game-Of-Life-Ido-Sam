@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B20FEF61DDBD13300EAA73F /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF51DDBD13300EAA73F /* Colony.swift */; };
+		4B20FEF81DDBD16700EAA73F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF71DDBD16700EAA73F /* Cell.swift */; };
+		4B20FEFA1DDBD19E00EAA73F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF91DDBD19E00EAA73F /* Util.swift */; };
 		4BA9AB361DD0E6C20053B432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9AB351DD0E6C20053B432 /* AppDelegate.swift */; };
 		4BA9AB381DD0E6C20053B432 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9AB371DD0E6C20053B432 /* ViewController.swift */; };
 		4BA9AB3B1DD0E6C20053B432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA9AB391DD0E6C20053B432 /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B20FEF51DDBD13300EAA73F /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
+		4B20FEF71DDBD16700EAA73F /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		4B20FEF91DDBD19E00EAA73F /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../Util.swift; sourceTree = "<group>"; };
 		4BA9AB321DD0E6C20053B432 /* Game Of Life Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game Of Life Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA9AB351DD0E6C20053B432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA9AB371DD0E6C20053B432 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +60,11 @@
 		4BA9AB341DD0E6C20053B432 /* Game Of Life Beta */ = {
 			isa = PBXGroup;
 			children = (
+				4B20FEF91DDBD19E00EAA73F /* Util.swift */,
 				4BA9AB351DD0E6C20053B432 /* AppDelegate.swift */,
 				4BA9AB371DD0E6C20053B432 /* ViewController.swift */,
+				4B20FEF51DDBD13300EAA73F /* Colony.swift */,
+				4B20FEF71DDBD16700EAA73F /* Cell.swift */,
 				4BA9AB391DD0E6C20053B432 /* Main.storyboard */,
 				4BA9AB3C1DD0E6C20053B432 /* Assets.xcassets */,
 				4BA9AB3E1DD0E6C20053B432 /* LaunchScreen.storyboard */,
@@ -96,6 +105,7 @@
 				TargetAttributes = {
 					4BA9AB311DD0E6C20053B432 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA9AB381DD0E6C20053B432 /* ViewController.swift in Sources */,
+				4B20FEF81DDBD16700EAA73F /* Cell.swift in Sources */,
+				4B20FEFA1DDBD19E00EAA73F /* Util.swift in Sources */,
 				4BA9AB361DD0E6C20053B432 /* AppDelegate.swift in Sources */,
+				4B20FEF61DDBD13300EAA73F /* Colony.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +310,7 @@
 				4BA9AB461DD0E6C20053B432 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
