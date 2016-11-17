@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EBF783E1DDCADC0006E434E /* Template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF783D1DDCADC0006E434E /* Template.swift */; };
 		4B20FEF61DDBD13300EAA73F /* Colony.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF51DDBD13300EAA73F /* Colony.swift */; };
 		4B20FEF81DDBD16700EAA73F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF71DDBD16700EAA73F /* Cell.swift */; };
 		4B20FEFA1DDBD19E00EAA73F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20FEF91DDBD19E00EAA73F /* Util.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EBF783D1DDCADC0006E434E /* Template.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Template.swift; sourceTree = "<group>"; };
 		4B20FEF51DDBD13300EAA73F /* Colony.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colony.swift; sourceTree = "<group>"; };
 		4B20FEF71DDBD16700EAA73F /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		4B20FEF91DDBD19E00EAA73F /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../Util.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4B20FEF91DDBD19E00EAA73F /* Util.swift */,
+				0EBF783D1DDCADC0006E434E /* Template.swift */,
 				4BA9AB351DD0E6C20053B432 /* AppDelegate.swift */,
 				4BA9AB371DD0E6C20053B432 /* ViewController.swift */,
 				4B20FEF51DDBD13300EAA73F /* Colony.swift */,
@@ -149,6 +152,7 @@
 				4BA9AB381DD0E6C20053B432 /* ViewController.swift in Sources */,
 				4B20FEF81DDBD16700EAA73F /* Cell.swift in Sources */,
 				4B20FEFA1DDBD19E00EAA73F /* Util.swift in Sources */,
+				0EBF783E1DDCADC0006E434E /* Template.swift in Sources */,
 				4BA9AB361DD0E6C20053B432 /* AppDelegate.swift in Sources */,
 				4B20FEF61DDBD13300EAA73F /* Colony.swift in Sources */,
 			);

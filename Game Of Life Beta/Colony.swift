@@ -30,6 +30,18 @@ class Colony: CustomStringConvertible{
         return printWindow(xMin, yMin: yMin, width: width, height: height);
     }
     
+   func blankTemplate() -> Colony{
+        aliveCells = Set();
+        xMin = 1;
+        yMin = 1;
+        width = 20;
+        height = 20;
+        generation = 0;
+    }
+    
+    func basicTemplate() -> Colony{
+        aliveCells = Set(
+    }
     //MARK: Initializer
     
     /**
