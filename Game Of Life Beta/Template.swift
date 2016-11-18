@@ -9,10 +9,17 @@
 import Foundation
 
 struct Template {
-    let temColony: Colony
+    let colony: Colony
     
     init (c: Colony) {
-        temColony = c
+        colony = c
         
+    }
+    init(){
+        colony = Colony()
+    }
+    
+    static func createStandardTemplates() -> [Template] {
+        return [];
     }
 }

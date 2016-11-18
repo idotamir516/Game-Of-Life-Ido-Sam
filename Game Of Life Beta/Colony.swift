@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 ///A class that represents a Game of Life colony
 class Colony: CustomStringConvertible{
@@ -15,14 +16,16 @@ class Colony: CustomStringConvertible{
     
     ///A set that contains all the alive cells that are in the colony
     var aliveCells: Set<Cell>;
+    ///The CGRect that represents the colony dimensions
+    var rect:CGRect;
     ///The minimum x coordinate of the colony
-    var xMin: Int;
+    var xMin: Int {return Int(rect.minX)};
     ///The minimum y coordinate of the colony
-    var yMin: Int;
+    var yMin: Int {return Int(rect.minY)};
     ///The width of the colony
-    var width: Int;
+    var width: Int {return Int(rect.width)};
     ///The height of the colony
-    var height: Int;
+    var height: Int {return Int(rect.height)};
     ///The current generation number
     var generation: Int;
     ///description value of the full colony, the string representation of a Game of Life colony
@@ -30,36 +33,23 @@ class Colony: CustomStringConvertible{
         return printWindow(xMin, yMin: yMin, width: width, height: height);
     }
     
-   func blankTemplate() -> Colony{
-        aliveCells = Set();
-        xMin = 1;
-        yMin = 1;
-        width = 20;
-        height = 20;
-        generation = 0;
-    }
     
-    func basicTemplate() -> Colony{
-        aliveCells = Set(
-    }
     //MARK: Initializer
     
     /**
      Initializes a Colony with:
      
      1. zero alive cells
-     2. **width** equal to 20
-     3. **height** equal to 20
-     4. **generation** equal to 0
-     5. **xMin** equal to 1
-     6. **yMin** equal to 1
+     2. **rect** with properties listed below
+     3. **width** equal to 20
+     4. **height** equal to 20
+     5. **generation** equal to 0
+     6. **xMin** equal to 1
+     7. **yMin** equal to 1
      */
     init(){
         aliveCells = Set();
-        xMin = 1;
-        yMin = 1;
-        width = 20;
-        height = 20;
+        rect = CGRect(x: 1, y: 1, width: 20, height: 20);
         generation = 0;
     }
     
@@ -67,20 +57,18 @@ class Colony: CustomStringConvertible{
      Initializes a square Colony with:
      
      1. zero alive cells
-     2. **width** equal to *dimensions*
-     3. **height** equal to *dimensions*
-     4. **generation** equal to 0
-     5. **xMin** equal to 1
-     6. **yMin** equal to 1
+     2. **rect** with properties listed below
+     3. **width** equal to *dimensions*
+     4. **height** equal to *dimensions*
+     5. **generation** equal to 0
+     6. **xMin** equal to 1
+     7. **yMin** equal to 1
      
      - Parameter dimensions: The **width** and **height** of the colony
      */
     init(dimensions: Int){
         aliveCells = Set();
-        xMin = 1;
-        yMin = 1;
-        width = dimensions;
-        height = dimensions;
+        rect = CGRect(x: 1, y: 1, width: dimensions, height: dimensions);
         generation = 0;
     }
     
@@ -88,31 +76,32 @@ class Colony: CustomStringConvertible{
      Initializes a Colony with:
      
      1. zero alive cells
-     2. **width** equal to *width*
-     3. **height** equal to *height*
-     4. **generation** equal to 0
-     5. **xMin** equal to 1
-     6. **yMin** equal to 1
+     2. **rect** with properties listed below
+     3. **width** equal to *width*
+     4. **height** equal to *height*
+     5. **generation** equal to 0
+     6. **xMin** equal to 1
+     7. **yMin** equal to 1
      
      - Parameter width: The **width** of the colony
      - Parameter height: The **height** of the colony
      */
     init(width: Int, height: Int){
         aliveCells = Set();
-        xMin = 1;
-        yMin = 1;
-        self.width = width;
-        self.height = height;
+        rect = CGRect(x: 1, y: 1, width: width, height: height);
         generation = 0;
     }
     
     /*
+     Initializes a Colony with:
+
      1. zero alive cells
-     2. **width** equal to *width*
-     3. **height** equal to *height*
-     4. **generation** equal to 0
-     5. **xMin** equal to *xMin*
-     6. **yMin** equal to *yMin*
+     2. **rect** with properties listed below
+     3. **width** equal to *width*
+     4. **height** equal to *height*
+     5. **generation** equal to 0
+     6. **xMin** equal to *xMin*
+     7. **yMin** equal to *yMin*
      
      - Parameter xMin: The minimum x coordinate of the colony
      - Parameter yMin: The minimum y coordinate of the colony
@@ -122,10 +111,7 @@ class Colony: CustomStringConvertible{
     
     init(xMin: Int, yMin: Int, width: Int, height: Int){
         aliveCells = Set();
-        self.xMin = xMin;
-        self.yMin = yMin;
-        self.width = width;
-        self.height = height;
+        rect = CGRect(x: xMin, y: yMin, width: width, height: height);
         generation = 0;
     }
     
