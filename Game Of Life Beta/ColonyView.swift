@@ -15,8 +15,9 @@ class ColonyView: UIView{
     override func draw(_ rect: CGRect) {
         if let context = UIGraphicsGetCurrentContext() {
             //Set background to gray (for non alive cells)
-            context.setFillColor(UIColor.green.cgColor)
+            context.setFillColor(UIColor.darkGray.cgColor)
             context.addRect(rect)
+            context.drawPath(using: .fillStroke)
             
             //Add alive cells
             context.setFillColor(UIColor.green.cgColor);
@@ -39,6 +40,7 @@ class ColonyView: UIView{
                 
                 context.addRect(cellRect);
             }
+            context.drawPath(using: .fillStroke)
             
             //Adding grid lines
             
@@ -52,15 +54,13 @@ class ColonyView: UIView{
             //Adding vertical lines
             for i in 0...colonyData.width{
                 let startingPoint = CGPoint(x: i * unitWidth, y: 0)
-                let endingPoint = CGPoint(x: height, y: i * unitWidth)
+                let endingPoint = CGPoint(x: i * unitWidth, y: height)
                 context.addLines(between: [startingPoint, endingPoint])
             }
             
+            context.drawPath(using: .stroke)
             
-            
-            
-            
-            
+        
             
             
             

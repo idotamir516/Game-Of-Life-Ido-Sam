@@ -27,4 +27,8 @@ struct  ColonyDataSource {
     var width: Int {return Int(rect.width)};
     ///The height of the colony
     var height: Int {return Int(rect.height)};
+    
+    
+    init(){colony = Colony()}
+    init(colony: Colony){self.colony = colony};
 }
