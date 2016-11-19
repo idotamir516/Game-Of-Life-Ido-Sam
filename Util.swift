@@ -44,3 +44,10 @@ extension String{
     }
     
 }
+
+
+infix operator ...
+
+func ... (lhs: Double, rhs: Double) -> StrideTo<Double>{
+    return stride(from:lhs, to: rhs, by: 1);
+}

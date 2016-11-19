@@ -23,7 +23,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let colony = Colony(dimensions: 60);
+        let colony = Colony(dimensions: 30);
+        colony.setCellAlive(1, yCoor: 1)
         colony.setCellAlive(30, yCoor: 30)
         colony.setCellAlive(31, yCoor: 31)
         colony.setCellAlive(32, yCoor: 30)

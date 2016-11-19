@@ -22,18 +22,18 @@ class ColonyView: UIView{
             //Add alive cells
             context.setFillColor(UIColor.green.cgColor);
             
-            let width = Int(rect.width);
-            let height = Int(rect.height);
+            let width: Double = Double(rect.width);
+            let height: Double = Double(rect.height);
             
-            let unitWidth = width / colonyData.width;
-            let unitHeight = height / colonyData.height;
+            let unitWidth: Double = width / colonyData.width;
+            let unitHeight: Double = height / colonyData.height;
             
             for cell in colonyData.aliveCells{
-                let x = cell.xCoor;
-                let y = cell.yCoor;
+                let x = Double(cell.xCoor);
+                let y = Double(cell.yCoor);
                 
                 let point = CGPoint(x: unitWidth * (x - colonyData.xMin),
-                                    y: height - unitHeight * (y - colonyData.yMin))
+                                    y: height - unitHeight * (y - colonyData.yMin + 1))
                 let size = CGSize(width: unitWidth, height: unitHeight);
                 
                 let cellRect = CGRect(origin: point, size: size)
@@ -45,23 +45,20 @@ class ColonyView: UIView{
             //Adding grid lines
             
             //Adding horizental lines
-            for i in 0...colonyData.height{
-                let startingPoint = CGPoint(x: 0, y: i * unitHeight)
-                let endingPoint = CGPoint(x: width, y: i * unitHeight)
+            for i in 0.0...colonyData.height{
+                let startingPoint = CGPoint(x: 0, y: Double(i) * unitHeight)
+                let endingPoint = CGPoint(x: width, y: Double(i) * unitHeight)
                 context.addLines(between: [startingPoint, endingPoint])
             }
             
             //Adding vertical lines
-            for i in 0...colonyData.width{
+            for i in 0.0...colonyData.width{
                 let startingPoint = CGPoint(x: i * unitWidth, y: 0)
                 let endingPoint = CGPoint(x: i * unitWidth, y: height)
                 context.addLines(between: [startingPoint, endingPoint])
             }
             
             context.drawPath(using: .stroke)
-            
-        
-            
             
             
         }

@@ -20,13 +20,13 @@ struct  ColonyDataSource {
     ///The CGRect that represents the colony dimensions
     var rect:CGRect{return colony.rect};
     ///The minimum x coordinate of the colony
-    var xMin: Int {return Int(rect.minX)};
+    var xMin: Double {return Double(rect.minX)};
     ///The minimum y coordinate of the colony
-    var yMin: Int {return Int(rect.minY)};
+    var yMin: Double {return Double(rect.minY)};
     ///The width of the colony
-    var width: Int {return Int(rect.width)};
+    var width: Double {return Double(rect.width)};
     ///The height of the colony
-    var height: Int {return Int(rect.height)};
+    var height: Double {return Double(rect.height)};
     
     
     init(){colony = Colony()}
