@@ -29,11 +29,15 @@ class ColonyView: UIView{
             let unitHeight: Double = height / colonyData.height;
             
             for cell in colonyData.aliveCells{
-                let x = Double(cell.xCoor);
-                let y = Double(cell.yCoor);
+                let x = cell.xCoor;
+                let y = cell.yCoor;
                 
-                let point = CGPoint(x: unitWidth * (x - colonyData.xMin),
-                                    y: height - unitHeight * (y - colonyData.yMin + 1))
+                let xScreen = colonyXToScreen(xCoor: x, minX: colonyData.xMin,
+                                              unitWidth: unitWidth)
+                let yScreen = colonyYToScreen(yCoor: y, minY: colonyData.yMin,
+                                              unitHeight: unitHeight, screenHeight: height)
+                
+                let point = CGPoint(x: xScreen, y: yScreen)
                 let size = CGSize(width: unitWidth, height: unitHeight);
                 
                 let cellRect = CGRect(origin: point, size: size)
@@ -46,8 +50,8 @@ class ColonyView: UIView{
             
             //Adding horizental lines
             for i in 0.0...colonyData.height{
-                let startingPoint = CGPoint(x: 0, y: Double(i) * unitHeight)
-                let endingPoint = CGPoint(x: width, y: Double(i) * unitHeight)
+                let startingPoint = CGPoint(x: 0, y: i * unitHeight)
+                let endingPoint = CGPoint(x: width, y: i * unitHeight)
                 context.addLines(between: [startingPoint, endingPoint])
             }
             

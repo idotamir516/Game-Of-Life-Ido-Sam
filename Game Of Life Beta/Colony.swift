@@ -290,6 +290,22 @@ class Colony: CustomStringConvertible{
     }
     
     /**
+     Sets cell alive or dead based on parameters
+     
+     - Parameter alive: whether to make the cell alive or dead
+     - Parameter xCoor: x coordinate of cell
+     - Parameter yCoor: y coordinate of cell
+     */
+    func setCell(alive: Bool, xCoor: Int, yCoor: Int) {
+        if alive {
+            setCellAlive(xCoor, yCoor: yCoor)
+        }else{
+            setCellDead(xCoor, yCoor: yCoor)
+        }
+    }
+    
+    
+    /**
      Evolves the colony one generation
      */
     func evolve(){

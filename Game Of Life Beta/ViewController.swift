@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var colonyGrid: ColonyView!;
     @IBOutlet weak var colonyOptions: UIView!;
     var colonies: [Colony]!;
+    var dragAlive: Bool = false;
+    var currentColonyIndex: Int = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,12 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let colony = Colony(dimensions: 30);
+        let colony = Colony(dimensions: 10);
         colony.setCellAlive(1, yCoor: 1)
         colony.setCellAlive(30, yCoor: 30)
         colony.setCellAlive(31, yCoor: 31)
         colony.setCellAlive(32, yCoor: 30)
+        colonies.append(colony);
         let colonyData = ColonyDataSource(colony: colony);
         colonyGrid.colonyData = colonyData;
         colonyTable.reloadData()
@@ -42,5 +45,42 @@ class ViewController: UIViewController, UITableViewDelegate {
         return colonies.count
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch =  touches.first{
+            print("touch began")
+            let colony = colonies[currentColonyIndex];
+            let (x, y) = getTouchLocation(touch: touch)
+            dragAlive = !colony.isCellAlive(x, yCoor: y);
+            handleTouch(xCoor: x, yCoor: y);
+            print(getTouchLocation(touch: touch))
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touch moved");
+        for touch in touches {
+            let (x, y) = getTouchLocation(touch: touch)
+            handleTouch(xCoor: x, yCoor: y)
+        }
+    }
+
+    
+    func getTouchLocation(touch: UITouch) -> (Int, Int){
+        let l = touch.location(in: colonyGrid);
+        let colony = colonies[currentColonyIndex];
+        let unitWidth: Double = Double(colonyGrid.frame.width) / Double(colony.width);
+        let unitHeight: Double = Double(colonyGrid.frame.height) / Double(colony.height);
+        let x = screenToColonyX(xCoor: Double(l.x), minX: colony.xMin, unitWidth: unitWidth)
+        let y = screenToColonyY(yCoor: Double(l.y), minY: colony.yMin, unitHeight: unitHeight, screenHeight: Double(colonyGrid.frame.height))
+        
+        return (x, y);
+    }
+    
+    func handleTouch(xCoor x: Int, yCoor y: Int){
+        let colony = colonies[currentColonyIndex];
+        colony.setCell(alive: dragAlive, xCoor: x, yCoor: y);
+        colonyGrid.colonyData = ColonyDataSource(colony: colony);
+        colonyGrid.setNeedsDisplay()
+    }
 }
 

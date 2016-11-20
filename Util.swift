@@ -51,3 +51,49 @@ infix operator ...
 func ... (lhs: Double, rhs: Double) -> StrideTo<Double>{
     return stride(from:lhs, to: rhs, by: 1);
 }
+
+
+func colonyXToScreen(xCoor: Int, minX: Double, unitWidth: Double) -> Double{
+    return unitWidth * (Double(xCoor) - minX);
+}
+
+
+func colonyYToScreen(yCoor: Int, minY: Double,
+                     unitHeight: Double, screenHeight height: Double) -> Double{
+    return height - unitHeight * (Double(yCoor) - minY + 1);
+}
+
+func screenToColonyX(xCoor: Double, minX: Int, unitWidth: Double) -> Int{
+    let asColonyCoordinate = Int(Double(xCoor)/unitWidth);
+    return asColonyCoordinate + minX;
+}
+
+func screenToColonyY(yCoor: Double, minY: Int,
+                     unitHeight: Double, screenHeight height: Double) -> Int{
+    let asColonyCoordinate = Int((height - Double(yCoor))/(unitHeight))
+    return asColonyCoordinate + minY
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
