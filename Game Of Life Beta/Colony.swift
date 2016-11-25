@@ -448,4 +448,81 @@ class Colony: CustomStringConvertible{
         return (xRange ~= x) && (yRange ~= y) && c1 != c2;
     }
     
+    func standardSet(c: Colony){
+        c.setCellAlive(5, yCoor: 3)
+        c.setCellAlive(5, yCoor: 4)
+        c.setCellAlive(5, yCoor: 5)
+        c.setCellAlive(4, yCoor: 3)
+        c.setCellAlive(3, yCoor: 4)
+
+}
+    func gliderGun(c: Colony){
+       //possibly a glider gun
+        c.setCellAlive(1, yCoor: 5)
+        c.setCellAlive(1, yCoor: 6)
+        c.setCellAlive(2, yCoor: 5)
+        c.setCellAlive(2, yCoor: 6)
+        c.setCellAlive(11, yCoor: 5)
+        c.setCellAlive(11, yCoor: 6)
+        c.setCellAlive(11, yCoor: 7)
+        c.setCellAlive(12, yCoor: 4)
+        c.setCellAlive(12, yCoor: 8)
+        c.setCellAlive(13, yCoor: 3)
+        c.setCellAlive(13, yCoor: 9)
+        c.setCellAlive(14, yCoor: 3)
+        c.setCellAlive(14, yCoor: 9)
+        c.setCellAlive(15, yCoor: 6)
+        c.setCellAlive(16, yCoor: 4)
+        
+        c.setCellAlive(16, yCoor: 8)
+        c.setCellAlive(17, yCoor: 5)
+        c.setCellAlive(17, yCoor: 6)
+        c.setCellAlive(17, yCoor: 7)
+        c.setCellAlive(18, yCoor: 6)
+        
+        c.setCellAlive(21, yCoor: 3)
+        c.setCellAlive(21, yCoor: 4)
+        c.setCellAlive(21, yCoor: 5)
+        c.setCellAlive(22, yCoor: 3)
+        c.setCellAlive(22, yCoor: 4)
+        
+        c.setCellAlive(22, yCoor: 5)
+        c.setCellAlive(23, yCoor: 2)
+        c.setCellAlive(23, yCoor: 6)
+        
+        c.setCellAlive(25, yCoor: 1)
+        c.setCellAlive(25, yCoor: 2)
+        c.setCellAlive(25, yCoor: 6)
+        c.setCellAlive(25, yCoor: 7)
+        c.setCellAlive(35, yCoor: 3)
+        c.setCellAlive(35, yCoor: 4)
+        c.setCellAlive(36, yCoor: 3)
+        
+        c.setCellAlive(36, yCoor: 4)
+        c.setCellAlive(35, yCoor: 22)
+        c.setCellAlive(35, yCoor: 23)
+        c.setCellAlive(35, yCoor: 25)
+        c.setCellAlive(36, yCoor: 22)
+        
+        c.setCellAlive(36, yCoor: 23)
+        c.setCellAlive(36, yCoor: 25)
+        c.setCellAlive(36, yCoor: 26)
+        c.setCellAlive(36, yCoor: 27)
+        c.setCellAlive(37, yCoor: 28)
+        c.setCellAlive(38, yCoor: 22)
+        c.setCellAlive(38, yCoor: 23)
+        c.setCellAlive(38, yCoor: 25)
+        c.setCellAlive(38, yCoor: 26)
+        c.setCellAlive(38, yCoor: 27)
+        c.setCellAlive(39, yCoor: 23)
+        c.setCellAlive(39, yCoor: 25)
+        c.setCellAlive(40, yCoor: 23)
+        
+        c.setCellAlive(40, yCoor: 25)
+        c.setCellAlive(41, yCoor: 24)
+        
+        
+    
+    }
+    
 }
