@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     var colonies: [Colony]!;
     var dragAlive: Bool = false;
     var currentColonyIndex: Int = 0;
+    var timer: Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         let colonyData = ColonyDataSource(colony: colony);
         colonyGrid.colonyData = colonyData;
         colonyTable.reloadData()
+        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.evolve), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,6 +83,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         let colony = colonies[currentColonyIndex];
         colony.setCell(alive: dragAlive, xCoor: x, yCoor: y);
         colonyGrid.colonyData = ColonyDataSource(colony: colony);
+        colonyGrid.setNeedsDisplay()
+    }
+    
+    func evolve(){
+        print("evolved")
+        colonies[currentColonyIndex].evolve();
         colonyGrid.setNeedsDisplay()
     }
 }

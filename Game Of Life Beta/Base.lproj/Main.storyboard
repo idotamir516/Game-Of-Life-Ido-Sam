@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,34 +21,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-dx-Qrd">
-                                <rect key="frame" x="321.5" y="847" width="1024.5" height="177"/>
-                                <color key="backgroundColor" red="0.94695696723840839" green="1" blue="0.00033646567800926785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fKD-Lh-BKd">
-                                <rect key="frame" x="20" y="20" width="301.5" height="1004"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="0.23024565302296018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2f-4L-ACw" customClass="ColonyView" customModule="Game_Of_Life_Beta" customModuleProvider="target">
-                                <rect key="frame" x="321.5" y="28" width="1024.5" height="819"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fca-WR-Hd8" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="20" width="1366" height="1004"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fKD-Lh-BKd">
+                                        <rect key="frame" x="0.0" y="0.0" width="461" height="1004"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="0.23024565302296018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Qr4-G1-yGt">
+                                        <rect key="frame" x="461" y="0.0" width="905" height="1004"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2f-4L-ACw" customClass="ColonyView" customModule="Game_Of_Life_Beta" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="905" height="827"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-dx-Qrd">
+                                                <rect key="frame" x="0.0" y="827" width="905" height="177"/>
+                                                <color key="backgroundColor" red="0.94695696723840839" green="1" blue="0.00033646567800926785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ARQ-dx-Qrd" firstAttribute="top" secondItem="W2f-4L-ACw" secondAttribute="bottom" id="45W-8K-lt7"/>
-                            <constraint firstItem="9tX-ID-B7m" firstAttribute="top" secondItem="ARQ-dx-Qrd" secondAttribute="bottom" id="HNE-if-KGb"/>
-                            <constraint firstItem="W2f-4L-ACw" firstAttribute="height" secondItem="9qy-wy-Zw5" secondAttribute="height" multiplier="0.8" id="Itn-V0-vMT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ARQ-dx-Qrd" secondAttribute="trailing" id="WuJ-hD-jiz"/>
-                            <constraint firstItem="9tX-ID-B7m" firstAttribute="top" secondItem="fKD-Lh-BKd" secondAttribute="bottom" id="aPG-BD-xxg"/>
-                            <constraint firstItem="fKD-Lh-BKd" firstAttribute="top" secondItem="FB4-Az-Utv" secondAttribute="bottom" id="fFa-Bo-44R"/>
-                            <constraint firstItem="W2f-4L-ACw" firstAttribute="width" secondItem="9qy-wy-Zw5" secondAttribute="width" multiplier="0.75" id="oWn-NI-had"/>
-                            <constraint firstItem="ARQ-dx-Qrd" firstAttribute="width" secondItem="W2f-4L-ACw" secondAttribute="width" id="r4K-PP-drv"/>
-                            <constraint firstItem="W2f-4L-ACw" firstAttribute="top" secondItem="FB4-Az-Utv" secondAttribute="bottom" constant="8" id="stJ-Cx-YVP"/>
-                            <constraint firstItem="W2f-4L-ACw" firstAttribute="leading" secondItem="fKD-Lh-BKd" secondAttribute="trailing" id="vwg-m1-gsO"/>
-                            <constraint firstItem="fKD-Lh-BKd" firstAttribute="leading" secondItem="9qy-wy-Zw5" secondAttribute="leadingMargin" id="ywN-Mp-o4u"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="W2f-4L-ACw" secondAttribute="trailing" id="z9w-18-cZK"/>
+                            <constraint firstItem="fca-WR-Hd8" firstAttribute="top" secondItem="FB4-Az-Utv" secondAttribute="bottom" id="Bil-G4-Wxk"/>
+                            <constraint firstItem="fca-WR-Hd8" firstAttribute="leading" secondItem="9qy-wy-Zw5" secondAttribute="leading" id="RJ5-Ty-yl5"/>
+                            <constraint firstAttribute="trailing" secondItem="fca-WR-Hd8" secondAttribute="trailing" id="mJI-tM-Vrf"/>
+                            <constraint firstItem="9tX-ID-B7m" firstAttribute="top" secondItem="fca-WR-Hd8" secondAttribute="bottom" id="vOC-5T-UEg"/>
                         </constraints>
                     </view>
                     <connections>
