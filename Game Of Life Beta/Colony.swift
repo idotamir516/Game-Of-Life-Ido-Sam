@@ -18,6 +18,8 @@ class Colony: CustomStringConvertible{
     var aliveCells: Set<Cell>;
     ///The CGRect that represents the colony dimensions
     var rect:CGRect;
+    ///The name of the colony
+    var name: String?;
     ///The minimum x coordinate of the colony
     var xMin: Int {return Int(rect.minX)};
     ///The minimum y coordinate of the colony
@@ -31,6 +33,10 @@ class Colony: CustomStringConvertible{
     ///description value of the full colony, the string representation of a Game of Life colony
     var description: String{
         return printWindow(xMin, yMin: yMin, width: width, height: height);
+    }
+    ///Details needed for UITableCell
+    var details: String{
+        return "width: \(width), height: \(height), Gen #\(generation)"
     }
     
     

@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var colonyTable: UITableView!;
     @IBOutlet weak var colonyGrid: ColonyView!;
     @IBOutlet weak var evolveStack: UIStackView!
     @IBOutlet weak var evolveSwitch: UISwitch!
     @IBOutlet weak var evolveSlider: UISlider!
+    @IBOutlet weak var stackGridAndOptions: UIStackView!
     var colonies: [Colony]!;
     var dragAlive: Bool = false;
     var currentColonyIndex: Int = 0;
@@ -22,7 +23,12 @@ class ViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let indexPath = NSIndexPath(row: 0, section: 0)
+        //Insert this new row into the table
         
+        colonyTable.insertRows(at: [indexPath as IndexPath], with: .automatic)
+        colonyTable.reloadData()
+        colonyGrid.setNeedsDisplay()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         colonies.append(colony);
         let colonyData = ColonyDataSource(colony: colony);
         colonyGrid.colonyData = colonyData;
-        colonyTable.reloadData()
+        
+        
         
     }
     
@@ -46,10 +53,31 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(colonies.count)
         return colonies.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("got here")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell")
+        print(cell)
+        let item = colonies[indexPath.row]
+        cell?.textLabel?.text = item.name ?? "Unamed colony"
+        cell?.detailTextLabel?.text = item.details;
+        return cell!
+    }
+    
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        colonyTable.setEditing(editing, animated: animated)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         if let touch =  touches.first{
             print("touch began")
             let colony = colonies[currentColonyIndex];
@@ -61,13 +89,14 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
         print("touch moved");
         for touch in touches {
             let (x, y) = getTouchLocation(touch: touch)
             handleTouch(xCoor: x, yCoor: y)
         }
+        
     }
-
     
     func getTouchLocation(touch: UITouch) -> (Int, Int){
         let l = touch.location(in: colonyGrid);
@@ -88,7 +117,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     func evolve(){
-        print("evolved")
         colonies[currentColonyIndex].evolve();
         colonyGrid.setNeedsDisplay()
     }
@@ -118,5 +146,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
     }
     
+
 }
 

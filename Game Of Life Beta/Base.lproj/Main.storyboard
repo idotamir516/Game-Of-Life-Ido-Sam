@@ -31,12 +31,28 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="0.23024565302296018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="q10-8y-cMt">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubtitleCell" textLabel="RV8-GA-cGn" detailTextLabel="ZZp-g4-RPz" style="IBUITableViewCellStyleSubtitle" id="q10-8y-cMt">
                                                 <rect key="frame" x="0.0" y="28" width="269" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q10-8y-cMt" id="RSy-lh-i3Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="269" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RV8-GA-cGn">
+                                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZZp-g4-RPz">
+                                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
@@ -48,6 +64,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2f-4L-ACw" customClass="ColonyView" customModule="Game_Of_Life_Beta" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="1077" height="945.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KWj-pi-jtb">
                                                 <rect key="frame" x="0.0" y="945.5" width="1077" height="58.5"/>
@@ -81,6 +98,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fca-WR-Hd8" firstAttribute="top" secondItem="FB4-Az-Utv" secondAttribute="bottom" id="Bil-G4-Wxk"/>
                             <constraint firstItem="fca-WR-Hd8" firstAttribute="leading" secondItem="9qy-wy-Zw5" secondAttribute="leading" id="RJ5-Ty-yl5"/>
@@ -94,6 +112,7 @@
                         <outlet property="evolveSlider" destination="PwI-ex-4ge" id="dd2-jP-rax"/>
                         <outlet property="evolveStack" destination="KWj-pi-jtb" id="5LR-w6-yDz"/>
                         <outlet property="evolveSwitch" destination="iUf-yJ-TVr" id="JH1-GI-qmj"/>
+                        <outlet property="stackGridAndOptions" destination="Qr4-G1-yGt" id="uMh-FV-sSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbo-r2-bN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
