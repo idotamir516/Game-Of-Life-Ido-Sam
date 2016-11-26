@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,42 +23,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="fca-WR-Hd8" userLabel="Main Stack View">
-                                <rect key="frame" x="0.0" y="20" width="1366" height="1004"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fca-WR-Hd8" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="20" width="1346" height="1004"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fKD-Lh-BKd">
-                                        <rect key="frame" x="0.0" y="0.0" width="461" height="1004"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="269" height="1004"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="0.23024565302296018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="q10-8y-cMt">
+                                                <rect key="frame" x="0.0" y="28" width="269" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q10-8y-cMt" id="RSy-lh-i3Y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Qr4-G1-yGt">
-                                        <rect key="frame" x="461" y="0.0" width="905" height="1004"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qr4-G1-yGt">
+                                        <rect key="frame" x="269" y="0.0" width="1077" height="1004"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2f-4L-ACw" customClass="ColonyView" customModule="Game_Of_Life_Beta" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="905" height="827"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1077" height="945.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARQ-dx-Qrd">
-                                                <rect key="frame" x="0.0" y="827" width="905" height="177"/>
-                                                <color key="backgroundColor" red="0.94695696723840839" green="1" blue="0.00033646567800926785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KWj-pi-jtb">
+                                                <rect key="frame" x="0.0" y="945.5" width="1077" height="58.5"/>
+                                                <subviews>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PwI-ex-4ge">
+                                                        <rect key="frame" x="-2" y="14.5" width="1061" height="31"/>
+                                                        <connections>
+                                                            <action selector="evolveTimeChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="GGd-B6-rW6"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolve:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcP-P9-Csn">
+                                                        <rect key="frame" x="1067" y="19" width="0.0" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-yJ-TVr">
+                                                        <rect key="frame" x="1077" y="14" width="2" height="31"/>
+                                                        <connections>
+                                                            <action selector="evolveStateChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="3UV-te-wHp"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Qr4-G1-yGt" firstAttribute="width" secondItem="fca-WR-Hd8" secondAttribute="width" multiplier="0.8" id="XfU-cy-DBM"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fca-WR-Hd8" firstAttribute="top" secondItem="FB4-Az-Utv" secondAttribute="bottom" id="Bil-G4-Wxk"/>
                             <constraint firstItem="fca-WR-Hd8" firstAttribute="leading" secondItem="9qy-wy-Zw5" secondAttribute="leading" id="RJ5-Ty-yl5"/>
-                            <constraint firstAttribute="trailing" secondItem="fca-WR-Hd8" secondAttribute="trailing" id="mJI-tM-Vrf"/>
-                            <constraint firstItem="9tX-ID-B7m" firstAttribute="top" secondItem="fca-WR-Hd8" secondAttribute="bottom" id="vOC-5T-UEg"/>
+                            <constraint firstItem="9tX-ID-B7m" firstAttribute="top" secondItem="fca-WR-Hd8" secondAttribute="bottom" id="W8E-Vk-MYf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fca-WR-Hd8" secondAttribute="trailing" id="rcr-IY-YKs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="colonyGrid" destination="W2f-4L-ACw" id="gl1-k2-kXb"/>
-                        <outlet property="colonyOptions" destination="ARQ-dx-Qrd" id="dpc-nd-XhX"/>
                         <outlet property="colonyTable" destination="fKD-Lh-BKd" id="u7h-sr-Jaa"/>
+                        <outlet property="evolveSlider" destination="PwI-ex-4ge" id="dd2-jP-rax"/>
+                        <outlet property="evolveStack" destination="KWj-pi-jtb" id="5LR-w6-yDz"/>
+                        <outlet property="evolveSwitch" destination="iUf-yJ-TVr" id="JH1-GI-qmj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbo-r2-bN4" userLabel="First Responder" sceneMemberID="firstResponder"/>

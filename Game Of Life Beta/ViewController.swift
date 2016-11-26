@@ -12,7 +12,9 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var colonyTable: UITableView!;
     @IBOutlet weak var colonyGrid: ColonyView!;
-    @IBOutlet weak var colonyOptions: UIView!;
+    @IBOutlet weak var evolveStack: UIStackView!
+    @IBOutlet weak var evolveSwitch: UISwitch!
+    @IBOutlet weak var evolveSlider: UISlider!
     var colonies: [Colony]!;
     var dragAlive: Bool = false;
     var currentColonyIndex: Int = 0;
@@ -35,8 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         let colonyData = ColonyDataSource(colony: colony);
         colonyGrid.colonyData = colonyData;
         colonyTable.reloadData()
-        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(ViewController.evolve), userInfo: nil, repeats: true)
-        RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,5 +92,31 @@ class ViewController: UIViewController, UITableViewDelegate {
         colonies[currentColonyIndex].evolve();
         colonyGrid.setNeedsDisplay()
     }
+    
+    @IBAction func evolveStateChanged(_ sender: UISwitch) {
+        if sender.isOn{
+            createTimer();
+            runTimer();
+        }
+        else{
+            timer.invalidate();
+        }
+    }
+    
+    @IBAction func evolveTimeChanged(_ sender: UISlider) {
+        timer.invalidate()
+        createTimer();
+        runTimer();
+    }
+    
+    func createTimer(){
+        
+        timer = Timer(timeInterval: TimeInterval(evolveSlider.value), target: self, selector: #selector(ViewController.evolve), userInfo: nil, repeats: true)
+    }
+    
+    func runTimer(){
+        RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
+    }
+    
 }
 
