@@ -462,6 +462,105 @@ class Colony: CustomStringConvertible{
         c.setCellAlive(3, yCoor: 4)
 
 }
+    
+    func glider(c: Colony) {
+        c.setCellAlive(2, yCoor: 2)
+        c.setCellAlive(3, yCoor: 3)
+        c.setCellAlive(3, yCoor: 4)
+        c.setCellAlive(4, yCoor: 2)
+        c.setCellAlive(4, yCoor: 3)
+    }
+    
+    func pulsar(c: Colony) {
+        //top left top horizantal
+        c.setCellAlive(5, yCoor: 3)
+        c.setCellAlive(6, yCoor: 3)
+        c.setCellAlive(7, yCoor: 3)
+        //top left left vertical
+        c.setCellAlive(3, yCoor: 5)
+        c.setCellAlive(3, yCoor: 6)
+        c.setCellAlive(3, yCoor: 7)
+        //top left bottom horizantal
+        c.setCellAlive(5, yCoor: 8)
+        c.setCellAlive(6, yCoor: 8)
+        c.setCellAlive(7, yCoor: 8)
+        //top left right vertical
+        c.setCellAlive(8, yCoor: 5)
+        c.setCellAlive(8, yCoor: 6)
+        c.setCellAlive(8, yCoor: 7)
+        //Bottom left top horizantal
+        c.setCellAlive(5, yCoor: 10)
+        c.setCellAlive(6, yCoor: 10)
+        c.setCellAlive(7, yCoor: 10)
+        //Bottom left bottom horizantal
+        c.setCellAlive(5, yCoor: 15)
+        c.setCellAlive(6, yCoor: 15)
+        c.setCellAlive(7, yCoor: 15)
+        ////Bottom left left vertical
+        c.setCellAlive(3, yCoor: 11)
+        c.setCellAlive(3, yCoor: 12)
+        c.setCellAlive(3, yCoor: 13)
+        ////Bottom left right vertical
+        c.setCellAlive(8, yCoor: 11)
+        c.setCellAlive(8, yCoor: 12)
+        c.setCellAlive(8, yCoor: 13)
+        //top right top horizantal
+        c.setCellAlive(11, yCoor: 3)
+        c.setCellAlive(12, yCoor: 3)
+        c.setCellAlive(13, yCoor: 3)
+        //top right left vertical
+        c.setCellAlive(10, yCoor: 5)
+        c.setCellAlive(10, yCoor: 6)
+        c.setCellAlive(10, yCoor: 7)
+        //top right bottom horizantal
+        c.setCellAlive(11, yCoor: 8)
+        c.setCellAlive(12, yCoor: 8)
+        c.setCellAlive(13, yCoor: 8)
+        //top right right vertical
+        c.setCellAlive(15, yCoor: 5)
+        c.setCellAlive(15, yCoor: 6)
+        c.setCellAlive(15, yCoor: 7)
+        //bottom right top horizantal
+        c.setCellAlive(11, yCoor: 10)
+        c.setCellAlive(12, yCoor: 10)
+        c.setCellAlive(13, yCoor: 10)
+        //bottom right left vertical
+        c.setCellAlive(10, yCoor: 11)
+        c.setCellAlive(10, yCoor: 12)
+        c.setCellAlive(10, yCoor: 13)
+        //bottom right bottom horizantal
+        c.setCellAlive(11, yCoor: 15)
+        c.setCellAlive(12, yCoor: 15)
+        c.setCellAlive(13, yCoor: 15)
+        //bottom right right vertical
+        c.setCellAlive(15, yCoor: 11)
+        c.setCellAlive(15, yCoor: 12)
+        c.setCellAlive(15, yCoor: 13)
+
+    }
+    
+    func pentadecathelon(c: Colony) {
+        c.setCellAlive(10, yCoor: 6);
+        c.setCellAlive(10, yCoor: 7);
+        c.setCellAlive(9, yCoor: 7);
+        c.setCellAlive(11, yCoor: 7);
+        c.setCellAlive(10, yCoor: 8);
+        c.setCellAlive(8, yCoor: 8);
+        c.setCellAlive(9, yCoor: 8);
+        c.setCellAlive(11, yCoor: 8);
+        c.setCellAlive(12, yCoor: 8);
+        c.setCellAlive(10, yCoor: 17);
+        c.setCellAlive(10, yCoor: 16);
+        c.setCellAlive(9, yCoor: 16);
+        c.setCellAlive(11, yCoor: 16);
+        c.setCellAlive(10, yCoor: 15);
+        c.setCellAlive(8, yCoor: 15);
+        c.setCellAlive(9, yCoor: 15);
+        c.setCellAlive(11, yCoor: 15);
+        c.setCellAlive(12, yCoor: 15);
+
+    }
+    
     func gliderGun(c: Colony){
        //possibly a glider gun
         c.setCellAlive(1, yCoor: 5)
