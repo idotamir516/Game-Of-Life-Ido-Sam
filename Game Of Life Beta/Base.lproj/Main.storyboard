@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zhm-eX-fhd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zhm-eX-fhd">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,9 +30,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="269" height="1004"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="1" blue="0.23024565302296018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" id="aQ4-ws-mvr">
+                                            <rect key="frame" x="0.0" y="0.0" width="269" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </stackView>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="SubtitleCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubtitleCell" textLabel="RV8-GA-cGn" detailTextLabel="ZZp-g4-RPz" style="IBUITableViewCellStyleSubtitle" id="q10-8y-cMt">
-                                                <rect key="frame" x="0.0" y="28" width="269" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SubtitleCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubtitleCell" textLabel="RV8-GA-cGn" detailTextLabel="ZZp-g4-RPz" style="IBUITableViewCellStyleSubtitle" id="q10-8y-cMt">
+                                                <rect key="frame" x="0.0" y="72" width="269" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q10-8y-cMt" id="RSy-lh-i3Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="269" height="43.5"/>
@@ -62,31 +66,53 @@
                                         <rect key="frame" x="269" y="0.0" width="1077" height="1004"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2f-4L-ACw" customClass="ColonyView" customModule="Game_Of_Life_Beta" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="1077" height="945.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1077" height="894"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KWj-pi-jtb">
-                                                <rect key="frame" x="0.0" y="945.5" width="1077" height="58.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-MT-tUu">
+                                                <rect key="frame" x="0.0" y="894" width="1077" height="30"/>
                                                 <subviews>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PwI-ex-4ge">
-                                                        <rect key="frame" x="-2" y="14.5" width="1061" height="31"/>
-                                                        <connections>
-                                                            <action selector="evolveTimeChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="GGd-B6-rW6"/>
-                                                        </connections>
-                                                    </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolve:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcP-P9-Csn">
-                                                        <rect key="frame" x="1067" y="19" width="0.0" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-yJ-TVr">
-                                                        <rect key="frame" x="1077" y="14" width="2" height="31"/>
-                                                        <connections>
-                                                            <action selector="evolveStateChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="3UV-te-wHp"/>
-                                                        </connections>
-                                                    </switch>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-7s-LRM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                                        <state key="normal" title="Save Template"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SH-lc-mLS">
+                                                        <rect key="frame" x="359" y="0.0" width="359" height="30"/>
+                                                        <state key="normal" title="Wrap"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-Yz-Rd0">
+                                                        <rect key="frame" x="718" y="0.0" width="359" height="30"/>
+                                                        <state key="normal" title="Expandibly"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z7K-el-I3S">
+                                                <rect key="frame" x="0.0" y="924" width="1077" height="80"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KWj-pi-jtb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="1077" height="80"/>
+                                                        <subviews>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PwI-ex-4ge">
+                                                                <rect key="frame" x="-2" y="25" width="1061" height="31"/>
+                                                                <connections>
+                                                                    <action selector="evolveTimeChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="GGd-B6-rW6"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolve:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcP-P9-Csn">
+                                                                <rect key="frame" x="1067" y="30" width="0.0" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-yJ-TVr">
+                                                                <rect key="frame" x="1077" y="24.5" width="2" height="31"/>
+                                                                <connections>
+                                                                    <action selector="evolveStateChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="3UV-te-wHp"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -117,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbo-r2-bN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1404.4921875" y="-807.75988286969243"/>
+            <point key="canvasLocation" x="-1404.6852122986822" y="-808.0078125"/>
         </scene>
     </scenes>
 </document>
