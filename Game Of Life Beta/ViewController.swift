@@ -23,11 +23,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let indexPath = NSIndexPath(row: 0, section: 0)
-        //Insert this new row into the table
+        let indexPath = NSIndexPath(row: 0, section: 0) as IndexPath
         
-        colonyTable.insertRows(at: [indexPath as IndexPath], with: .automatic)
-        colonyTable.reloadData()
+        
+        colonyTable.insertRows(at: [indexPath], with: .automatic)
+        print("added to colony Table")
+        //colonyTable.reloadData()
         colonyGrid.setNeedsDisplay()
     }
 
@@ -43,8 +44,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let colonyData = ColonyDataSource(colony: colony);
         colonyGrid.colonyData = colonyData;
         
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,12 +58,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("got here")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell")
-        print(cell)
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        var cell:UITableViewCell? =
+            tableView.dequeueReusableCell(withIdentifier:"SubtitleCell")
+        if (cell == nil)
+        {
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle,
+                                   reuseIdentifier: "SubtitleCell")
+        }
         let item = colonies[indexPath.row]
         cell?.textLabel?.text = item.name ?? "Unamed colony"
         cell?.detailTextLabel?.text = item.details;
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = colonies.remove(at: sourceIndexPath.row)
+        colonies.insert(item, at: destinationIndexPath.row)
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -122,6 +132,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func evolveStateChanged(_ sender: UISwitch) {
+        print(colonies.count);
+        let indexPath = NSIndexPath(row: 0, section: 0) as IndexPath
+        
+        
+        colonyTable.insertRows(at: [indexPath], with: .automatic)
         if sender.isOn{
             createTimer();
             runTimer();
@@ -138,7 +153,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func createTimer(){
-        
         timer = Timer(timeInterval: TimeInterval(evolveSlider.value), target: self, selector: #selector(ViewController.evolve), userInfo: nil, repeats: true)
     }
     
