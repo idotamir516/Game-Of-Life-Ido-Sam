@@ -76,6 +76,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mD-7s-LRM">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
                                                         <state key="normal" title="Save Template"/>
+                                                        <connections>
+                                                            <action selector="saveTemplate:" destination="zhm-eX-fhd" eventType="touchUpInside" id="dp1-Zl-vA7"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SH-lc-mLS">
                                                         <rect key="frame" x="359" y="0.0" width="359" height="30"/>
@@ -100,13 +103,13 @@
                                                                 </connections>
                                                             </slider>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolve:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcP-P9-Csn">
-                                                                <rect key="frame" x="1067" y="30" width="0.0" height="20.5"/>
+                                                                <rect key="frame" x="1067" y="30" width="0.0" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iUf-yJ-TVr">
-                                                                <rect key="frame" x="1077" y="24.5" width="2" height="31"/>
+                                                                <rect key="frame" x="1077" y="25" width="2" height="31"/>
                                                                 <connections>
                                                                     <action selector="evolveStateChanged:" destination="zhm-eX-fhd" eventType="valueChanged" id="3UV-te-wHp"/>
                                                                 </connections>

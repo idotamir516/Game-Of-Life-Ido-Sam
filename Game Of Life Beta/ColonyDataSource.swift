@@ -14,7 +14,7 @@ struct  ColonyDataSource {
     ///Colony to be represented
     private let colony: Colony;
     
-    ///The cell who are alive in the colony
+    ///The cells which are alive in the colony
     var aliveCells: Set<Cell> {return colony.aliveCells};
     
     ///The CGRect that represents the colony dimensions

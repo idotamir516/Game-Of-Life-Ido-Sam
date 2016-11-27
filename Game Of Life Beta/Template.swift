@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct Template {
+    var colonyData: ColonyDataSource!;
     let colony: Colony
     
     init (c: Colony) {

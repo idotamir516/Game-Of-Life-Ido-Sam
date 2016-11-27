@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBAction func saveTemplate(_ sender: Any) {
+        let template = Template()
+        template.colony.aliveCells = colonyGrid.colonyData.aliveCells
+    }
+   
     @IBOutlet weak var colonyTable: UITableView!;
     @IBOutlet weak var colonyGrid: ColonyView!;
     @IBOutlet weak var evolveStack: UIStackView!
