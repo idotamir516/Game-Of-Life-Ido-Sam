@@ -540,24 +540,24 @@ class Colony: CustomStringConvertible{
     }
     
     func pentadecathelon(c: Colony) {
-        c.setCellAlive(10, yCoor: 6);
-        c.setCellAlive(10, yCoor: 7);
-        c.setCellAlive(9, yCoor: 7);
-        c.setCellAlive(11, yCoor: 7);
-        c.setCellAlive(10, yCoor: 8);
-        c.setCellAlive(8, yCoor: 8);
-        c.setCellAlive(9, yCoor: 8);
-        c.setCellAlive(11, yCoor: 8);
-        c.setCellAlive(12, yCoor: 8);
-        c.setCellAlive(10, yCoor: 17);
-        c.setCellAlive(10, yCoor: 16);
-        c.setCellAlive(9, yCoor: 16);
-        c.setCellAlive(11, yCoor: 16);
-        c.setCellAlive(10, yCoor: 15);
-        c.setCellAlive(8, yCoor: 15);
-        c.setCellAlive(9, yCoor: 15);
-        c.setCellAlive(11, yCoor: 15);
-        c.setCellAlive(12, yCoor: 15);
+        c.setCellAlive(10, yCoor: 6)
+        c.setCellAlive(10, yCoor: 7)
+        c.setCellAlive(9, yCoor: 7)
+        c.setCellAlive(11, yCoor: 7)
+        c.setCellAlive(10, yCoor: 8)
+        c.setCellAlive(8, yCoor: 8)
+        c.setCellAlive(9, yCoor: 8)
+        c.setCellAlive(11, yCoor: 8)
+        c.setCellAlive(12, yCoor: 8)
+        c.setCellAlive(10, yCoor: 17)
+        c.setCellAlive(10, yCoor: 16)
+        c.setCellAlive(9, yCoor: 16)
+        c.setCellAlive(11, yCoor: 16)
+        c.setCellAlive(10, yCoor: 15)
+        c.setCellAlive(8, yCoor: 15)
+        c.setCellAlive(9, yCoor: 15)
+        c.setCellAlive(11, yCoor: 15)
+        c.setCellAlive(12, yCoor: 15)
 
     }
     
